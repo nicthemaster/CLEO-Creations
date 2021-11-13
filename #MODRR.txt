@@ -1,0 +1,4 @@
+:restart
+0A92: create_custom_thread "mod.cs"
+0A93: end_custom_thread
+SAMP.CmdRet()

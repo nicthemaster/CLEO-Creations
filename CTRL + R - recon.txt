@@ -1,0 +1,20 @@
+{$CLEO}
+thread "Nic.eXe face moduri, P.S: shanker e nab"
+
+0000:
+
+repeat
+    wait 0
+until 0AFA:
+
+while true
+    wait 0
+
+    if and
+        key_down 0x11
+        key_down 0x52
+    then
+        say "/recon"
+        wait 3000
+    end
+end

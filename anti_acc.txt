@@ -1,0 +1,96 @@
+{$CLEO}
+0000:
+repeat
+wait 0
+until 0afa:
+
+                        
+0b63: "anti_acc"
+0b34: "anti_acc" @antiacc
+
+
+0BE3: raknet setup_incoming_rpc_hook @IN_COMING         
+         
+20@ = 0
+while true
+wait 0
+    if and
+        8b21:
+        0ab0: 77
+    then
+        
+        
+        if
+            20@ == 1
+        then
+            20@ = 0
+           print "off" 100
+        else
+            20@ = 1
+           print "on" 100
+        end    
+        repeat
+        wait 0
+        until 8ab0: 77
+    end
+end
+
+:antiacc  
+if
+            20@ == 1
+        then
+            20@ = 0
+           print "off" 100
+        else
+            20@ = 1
+           print "on" 100
+        end
+cmdret
+ 
+:IN_COMING
+0BE5: raknet 0@ = get_hook_param 1
+
+if 
+20@ == 1
+then
+    alloc 3@ 260
+    0bf8: 3@ 0@
+    
+    free 3@
+    if  or 
+        0@ == 159
+        0@ == 71
+        //15 12 15
+      0@ == 15
+      // 0@ == 12   // enter any faction car
+        //   0@ == 24 // vehicle paramsex
+        0@ == 161
+    then    
+        //msg "NOPE" -1
+        alloc 3@ 260
+        0bf8: 3@ 0@
+        
+        log "{FF0000}%d %s" 0@ 3@
+        free 3@
+        0be0: false
+    end
+end
+0BE0: raknet hook_ret 1
+
+
+
+:receive
+
+cmdret
+
+:sender
+if
+    20@ == 1
+then
+    20@ = 0
+    chatmsg "OFF" -1
+else
+    20@ = 1
+    chatmsg "ON" -1
+end
+cmdret

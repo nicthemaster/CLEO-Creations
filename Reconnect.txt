@@ -1,0 +1,84 @@
+{$CLEO}
+
+thread "scripter"
+
+0000:
+
+repeat
+    wait 0
+until 0AFA:
+
+0B63: "rr"
+0B63: "Name"
+
+0B34: "Name" @Name       
+0b34: "rr" @asd
+
+while true
+wait 0 
+
+    if 17@ == 1
+    then
+        0B28: 0
+        wait 1050
+        0B27: 1
+        17@ = 0 
+    end
+
+end
+
+:asd 
+0AC8: 0@ = mem 124
+0B2B: 15@ = $PLAYER_ACTOR
+0B36: 0@ = 15@
+
+0AC8: 1@ = mem 124
+0AB1: @nic 4 0@ 91 93 1@
+printf "Nume: %s" 4000 1@
+
+0B29: 1@
+17@ = 1
+free 0@ 
+free 1@
+cmdret
+
+:nic
+5@ = FALSE 
+0C17: 31@ = strlen 0@
+    for 30@ = 0 to 31@
+        0085: 29@ = 0@
+        005A: 29@ += 30@
+        0A8D: 28@ = mem 29@ 1 1 
+        if
+        003B:   28@ == 1@
+        then
+            5@ = TRUE 
+        end
+ 
+        if
+        5@ == FALSE 
+        THEN
+            0A8C: 3@ 1 28@ 1
+            3@ += 1 
+        END
+ 
+        if
+        003B:   28@ == 2@
+        then
+            5@ = FALSE 
+        end
+    end
+0A8C: m 3@ s 1 v 0 v 1 
+0AB2: ret 0
+
+
+:Name
+if SAMP.IsCommandTyped(0@)
+then 
+    0B29: name 0@
+    printf "Nume: %s" 4000 0@
+else printf "Introdu un nume" 4000
+end
+cmdret
+
+

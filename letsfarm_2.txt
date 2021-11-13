@@ -1,0 +1,174 @@
+{$CLEO}
+
+0000: NOP
+
+repeat
+wait 0
+until 0afa:
+
+20@ = 0
+
+0C64: unregister_console_command "letsfarm"
+0C63: register_console_command "letsfarm" to_label @cmd
+
+0BE2: raknet setup_outcoming_packet_hook @packet_manage
+
+0C6A: 33@ = create_custom_thread_at_label @farm
+
+
+const
+speed 74.0
+end
+
+26@ = 0
+
+
+while true
+wait 0    
+    0AB1: @get 2 var_number 1 var_size 4 receiver 20@ 
+    if
+        20@ == 1
+    then
+        if
+            not actor.Driving($PLAYER_ACTOR)
+        then
+            20@ = 0  
+            0AB1: @set 3 passed_value 0 var_number 1 var_size 4
+            chatmsg "ups, are you gonna make km on feet??????? mdfker" -1
+            jump @end
+        end
+        
+       
+        
+        29@ = actor.CurrentCar($PLAYER_ACTOR) 
+        2@ = 0          
+        repeat 
+            2@++
+            Car.SetSpeedInstantly(29@, speed)  
+            wait 500
+            Car.SetSpeedInstantly(29@, speed)   
+        until 2@ == 1
+                   
+        0175: 29@ 24@
+        00ab: 29@ 21@ 22@ 23@
+                 
+        :end
+    end
+end
+
+
+:cmd
+if
+    20@ == 1
+then                             
+    chatmsg "why u wanna stop? :(" -1
+    20@ = 0  
+    0AB1: @set 3 passed_value 0 var_number 1 var_size 4
+else
+    chatmsg "let's farm baby <3" -1 
+
+    chatmsg "teleport data:" -1
+    Actor.StorePos($PLAYER_ACTOR, 21@, 22@, 23@)    
+    4@ = actor.CurrentCar($PLAYER_ACTOR)
+    24@ = car.Angle(4@)
+    chatmsg "%f %f %f | car.angle %f" -1 21@ 22@ 23@ 24@    
+    20@ = 1   
+    0AB1: @set 3 passed_value 1 var_number 1 var_size 4
+end
+cmdret
+
+
+
+:SendFakeSpecSync
+Actor.StorePos($PLAYER_ACTOR, 0@, 1@, 2@)
+alloc 3@ 18
+0C0D: struct 3@ offset 0 size 2 = 0 // sLeftRightKeys;
+0C0D: struct 3@ offset 2 size 2 = 0 // sUpDownKeys;
+0C0D: struct 3@ offset 4 size 2 = 0 // sKeys;
+0C0D: struct 3@ offset 6 size 4 = 0@ //fPosition[X];
+0C0D: struct 3@ offset 10 size 4 = 1@ // fPosition[Y];
+0C0D: struct 3@ offset 14 size 4 = 2@ //fPosition[Z];
+0B3D: raknet 4@ = new_bit_stream 
+0B40: raknet bit_stream 4@ write 212 type 0 size 1
+0B40: raknet bit_stream 4@ write 3@ type 5 size 18 
+0B8B: raknet send bit_stream 4@
+0B3E: raknet delete_bit_stream 4@
+free 3@
+ret 0
+
+:packet_manage 
+0BE5: raknet 1@ = get_hook_param 1
+if and
+20@ == 1 
+1@ == 207
+then
+    0BE0: raknet hook_ret false 
+else
+    0BE0: raknet hook_ret true
+end
+if and
+20@ == 1 
+1@ == 200
+then
+    0BE0: raknet hook_ret false 
+else
+    0BE0: raknet hook_ret true
+end
+
+
+
+:set{passed_value,var_number,var_size}  
+0AC6: 3@ = get_label_pointer @memory
+int 1@ *= 4   
+int 3@ += 1@
+0a8c: 3@ 2@ 0@ 0
+ret 0
+
+:get{var_number,var_size}
+0AC6: 3@ = get_label_pointer @memory
+int 0@ *= 4
+int 3@ += 0@
+0a8d: 2@ = 3@ 1@ 0
+ret 1 2@
+
+:memory 
+hex
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 
+ end
+ 
+ 
+:farm
+while true
+wait 0       
+    0AB1: @get 2 var_number 1 var_size 4 receiver 20@ 
+    if
+        20@ == 1
+    then
+        if
+            not    actor.Driving($PLAYER_ACTOR)
+        then
+            20@ = 0  
+            0AB1: @set 3 passed_value 0 var_number 1 var_size 4
+            jump @end2
+        end
+        call @SendFakeSpecSync 0 
+        29@ = Actor.CurrentCar($PLAYER_ACTOR)
+        28@ = Car.Health(29@)
+        if
+            not 28@ == 1000
+        then
+            0A30: repair_car 29@ 
+            053F: set_car 29@ tires_vulnerability 0 
+            Car.RemoveReferences(29@)
+            chatmsg "repaired" -1
+        end
+        :end2   
+    end
+end

@@ -1,0 +1,287 @@
+{$CLEO}
+{$USE CLEO}
+{$USE CLEO+}
+{$USE file}
+{$USE bitwise}
+{$USE newOpcodes}
+{$USE ini}
+0000: NOP
+
+{
+Hotdog point: -366.3427 -1412.1936 25.7266
+Between hotdog and work point: -521.4857 -1386.3781 14.3268
+Work point: -518.8939 -1550.446 9.3188
+}
+
+repeat
+    wait 0
+until SAMP.Available()
+SAMP.UnregisterClientCommand("da")
+0B34: samp register_client_command "da" to_label @FARM_BOT
+alloc 2@ 260
+0@ = 0
+8@ = 1
+10@ = 1
+
+while true
+    wait 0
+    if
+        0@ == 1
+    then
+        if
+            33@ >= 10000
+        then
+        else
+            print "Pauza." 100
+            continue
+        end
+        SAMP.GetChatString(99, 2@, 0, 0, 0)
+        if or
+            0C29: $0 = stristr string1 2@ string2 "alo"
+            0C29: $0 = stristr string1 2@ string2 "esti"
+            0C29: $0 = stristr string1 2@ string2 "thames"
+            0C29: $0 = stristr string1 2@ string2 "alo"
+            0C29: $0 = stristr string1 2@ string2 "alo"
+            0C29: $0 = stristr string1 2@ string2 "alo"
+            
+            
+            
+        then
+            if and
+                8C29: $0 = stristr string1 2@ string2 "(("
+                8C29: $0 = stristr string1 2@ string2 "Ad placed by"
+                8C29: $0 = stristr string1 2@ string2 "Live"
+                8C29: $0 = stristr string1 2@ string2 "Event"
+                8C29: $0 = stristr string1 2@ string2 "Mayor"
+                8C29: $0 = stristr string1 2@ string2 "question"
+                8C29: $0 = stristr string1 2@ string2 "[INFO]"   
+                8C29: $0 = stristr string1 2@ string2 "..."
+            then
+                if and
+                    8C29: $0 = stristr string1 2@ string2 "AdmBot"
+                    8C29: $0 = stristr string1 2@ string2 "AdmCmd"
+                    8C29: $0 = stristr string1 2@ string2 "Player"
+                    8C29: $0 = stristr string1 2@ string2 "Helper"
+                    8C29: $0 = stristr string1 2@ string2 "NR "
+                    8C29: $0 = stristr string1 2@ string2 "[Treasure Hunt]"
+                    8C29: $0 = stristr string1 2@ string2 "Freq:"
+                    8C29: $0 = stristr string1 2@ string2 "/crates"
+                then      
+                    if  
+                        8C29: $0 = stristr string1 2@ string2 "emotional_being says:"
+                    then                 
+                        if
+                            not Actor.Driving($PLAYER_ACTOR)
+                        then    
+                            Actor.StorePos($PLAYER_ACTOR, 4@, 5@, 6@)
+                            05D3: AS_actor $PLAYER_ACTOR goto_point 4@ 5@ 6@ mode 7 time 1 ms // versionA
+                        end
+                        wait 2000
+                        if
+                            10@ == 1
+                        then
+                            0AF9: "?"
+                            10@ = 2
+                        else
+                            if
+                                10@ == 2
+                            then
+                                0AF9: "da"
+                                10@ = 3
+                            else
+                                if
+                                    10@ == 3
+                                then
+                                    0AF9: "wtf"
+                                    10@ = 4
+                                else
+                                    if
+                                        10@ == 4
+                                    then
+                                        0AF9: "unde esti?"
+                                        10@ = 5
+                                    else
+                                        if
+                                            10@ == 5
+                                        then
+                                            0AF9: "lasa-ma"
+                                            10@ = 6
+                                        else
+                                            if
+                                                10@ == 6
+                                            then
+                                                0AF9: "ce vrei?"
+                                                10@ = 7
+                                            else
+                                                if
+                                                    10@ == 7
+                                                then
+                                                    0AF9: "."
+                                                    10@ = 1
+                                                end
+                                            end
+                                        end  
+                                    end
+                                end
+                            end
+                        end
+                        33@ = 0
+                        continue
+                    end
+                end  
+            end
+        end
+        if
+            7@ == 0
+        then
+            if
+                Player.Defined($PLAYER_CHAR)
+            then
+                if
+                    Actor.Driving($PLAYER_ACTOR)
+                then
+                    1@ = Actor.CurrentCar($PLAYER_ACTOR)
+                    if
+                        056E:   car 1@ defined
+                    then
+                        if
+                            Car.Model(1@) == #COMBINE
+                        then
+                            0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x1C
+                            0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x0
+                        else
+                            if
+                                Car.Model(1@) == #TRACTOR
+                            then
+                                if
+                                    81F3:   car 1@ in_air
+                                then
+                                    04BA: set_car 1@ speed_to 11.0
+                                    0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x20
+                                    0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0xC
+                                    0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x1
+                                    3@ = Actor.Health($PLAYER_ACTOR)
+                                    if
+                                        not 3@ >= 15
+                                    then
+                                        if
+                                            Actor.Driving($PLAYER_ACTOR)
+                                        then
+                                            Actor.StorePos($PLAYER_ACTOR, 4@, 5@, 6@)
+                                            0362: remove_actor $PLAYER_ACTOR from_car_and_place_at 4@ 5@ 6@
+                                            7@ = 1
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        else       
+            if
+                Player.Defined($PLAYER_CHAR)
+            then
+                0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x20
+                0AB1: @FAKE_KEYPRESS 1 OFFSET_KEY 0x3
+                if
+                    8@ == 1
+                then
+                    05D3: AS_actor $PLAYER_ACTOR goto_point -521.4857 -1386.3781 14.3268 mode 7 time -1 ms // versionA
+                    if
+                        00EC:   actor $PLAYER_ACTOR sphere 0 near_point -521.4857 -1386.3781 radius 1.0 1.0
+                    then
+                        8@ = 2
+                    end
+                end
+                if
+                    8@ == 2
+                then
+                    05D3: AS_actor $PLAYER_ACTOR goto_point -366.3427 -1412.1936 25.7266 mode 7 time -1 ms // versionA
+                    if
+                        00EC:   actor $PLAYER_ACTOR sphere 0 near_point -366.3427 -1412.1936 radius 1.0 1.0
+                    then
+                        8@ = 3
+                    end
+                end
+                if
+                    8@ == 3
+                then
+                    repeat
+                        wait 0     
+                        if
+                            Player.Defined($PLAYER_CHAR)
+                        then  
+                            05D3: AS_actor $PLAYER_ACTOR goto_point -366.3427 -1412.1936 25.7266 mode 7 time -1 ms // versionA
+                            9@ = Actor.Health($PLAYER_ACTOR)
+                            0AF9: "/hotdog"
+                        else
+                            continue
+                        end
+                    until 9@ >= 100
+                    8@ = 4
+                end
+                if
+                    8@ == 4
+                then
+                    05D3: AS_actor $PLAYER_ACTOR goto_point -521.4857 -1386.3781 14.3268 mode 7 time -1 ms // versionA
+                    if
+                        00EC:   actor $PLAYER_ACTOR sphere 0 near_point -521.4857 -1386.3781 radius 1.0 1.0
+                    then
+                        8@ = 5
+                    end
+                end
+                if
+                    8@ == 5
+                then
+                    05D3: AS_actor $PLAYER_ACTOR goto_point -518.8939 -1550.446 9.3188 mode 7 time -1 ms // versionA
+                    if
+                        00EC:   actor $PLAYER_ACTOR sphere 0 near_point -518.8939 -1550.446 radius 1.0 1.0
+                    then
+                        8@ = 6
+                    end
+                end
+                if
+                    8@ == 6
+                then
+                    0AF9: "/work"
+                    if
+                        Actor.Driving($PLAYER_ACTOR)
+                    then
+                        wait 1000
+                        0AF9: "/engine"
+                        7@ = 0
+                        8@ = 1
+                    end
+                end
+            else
+                7@ = 0
+            end
+        end
+    end
+end       
+
+:FARM_BOT
+if
+    0@ == 0
+then
+    0@ = 1
+    print "Mod ~g~activated!" 2000
+else                
+    if
+        not Actor.Driving($PLAYER_ACTOR)
+    then    
+        Actor.StorePos($PLAYER_ACTOR, 4@, 5@, 6@)
+        05D3: AS_actor $PLAYER_ACTOR goto_point 4@ 5@ 6@ mode 7 time 1 ms // versionA
+    end
+    0@ = 0
+    7@ = 0
+    print "Mod ~r~deactivated!" 2000
+end
+SAMP.CmdRet()
+
+:FAKE_KEYPRESS
+1@ = 0xB73458 
+005A: 1@ += 0@
+0A8C: write_memory 1@ size 1 value 255 virtual_protect 0
+0AB2: ret 0

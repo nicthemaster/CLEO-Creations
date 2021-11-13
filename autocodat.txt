@@ -1,0 +1,40 @@
+{$CLEO}
+{$INCLUDE SF}
+0000:
+
+repeat
+wait 0
+until SAMP.Available()
+
+0BE3: raknet setup_incoming_rpc_hook @login
+
+while true
+wait 0
+
+END
+
+:login
+0BE5: raknet 31@ = get_hook_param PARAM_PACKETID
+if 31@ == RPC_ScrClientMessage
+then
+    alloc 27@ 256
+    0c11: memset destiantion 27@ value 0 size 256
+       
+    0BE5: raknet 30@ = get_hook_param PARAM_BITSTREAM
+    0BE7: raknet 29@ = bit_stream_read 30@ type BS_TYPE_INT //color
+    0BE7: raknet 28@ = bit_stream_read 30@ type BS_TYPE_INT //lenght
+    0BE8: raknet bit_stream 30@ read_array 27@ size 28@ //string
+    0C0D: struct 27@ offset 28@ size 1 = 0
+    
+    if 0C29: $NOT_USED = stristr string1 27@ string2 "just registered"
+    then
+        alloc 26@ 50
+        0AA5: call 0x8220AD num_params 4 pop 4 25@v 26@ "%s (%d)" 27@
+        //26@=nick | 25@=ID
+        say "/a stau pe %s (%d)" 26@ 25@
+        free 26@
+    end
+        
+    free 27@
+end
+0BE0: raknet hook_ret true  

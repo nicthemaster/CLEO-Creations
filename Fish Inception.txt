@@ -1,0 +1,185 @@
+{$CLEO}
+{$INCLUDE SF}
+0000: NOP 
+
+thread "fak"
+
+:AdminHelp_2
+wait 0 
+   SAMP.Available
+else_jump @AdminHelp_2  
+
+20@ = 0  
+
+alloc 29@ 256
+0BE3: raknet setup_incoming_rpc_hook @auto_chat
+0b34: "fishls" @rr
+0b34: "fishlv" @rrlv
+
+while true
+wait 0
+
+if 8@ == 1
+then
+    wait 10000
+    Actor.PutAt($PLAYER_ACTOR, 372.6348,-2078.6516,7.8359) 
+    8@ = 0
+end
+
+if 21@ == 1
+then
+    if and
+    not SAMP.ChatInputOpened()
+    0AB0: 49
+    15@ = 1
+    then
+        21@ = 0
+        Actor.PutAt($PLAYER_ACTOR, 2129.3223,-2281.9019,20.6643) 
+        wait 600
+        say "/getjob"
+    end
+end
+
+if 24@ == 1
+then
+wait 600
+0C72: set_virtual_key 70 down true
+wait 50
+0C72: set_virtual_key 70 down false
+wait 650
+0C72: set_virtual_key 70 down true 
+wait 50 
+0C72: set_virtual_key 70 down false
+wait 650 
+24@ = 0
+//if 16@ < 25
+//then
+    
+Actor.PutAt($PLAYER_ACTOR, 2129.3223,-2281.9019,20.6643) 
+wait 600
+say "/getjob"
+end
+
+if 10@ == 1
+then
+    wait 600
+    say "/getjob"
+    10@ = 0
+end
+
+if 11@ == 1
+then
+    wait 600
+    say "/fish"
+    11@ = 0
+end
+ 
+end
+
+:rrlv
+if 19@ == 0
+then
+    19@ = 1
+    Actor.PutAt($PLAYER_ACTOR, 2000.9236,1564.5646,8.0484)
+    print "~W~make money boy" 3000
+else
+    19@ = 0
+    print "~W~lol stop" 3000
+end
+cmdret
+
+:rr
+if 20@ == 0
+then
+    20@ = 1
+    print "~G~Subscribe la Nic B-Zone" 3000
+else
+    20@ = 0
+    print "~G~Gata distractia :(" 3000
+end
+cmdret   
+
+:auto_chat
+0BE5: raknet 31@ = get_hook_param PARAM_PACKETID
+if 31@ == RPC_ScrClientMessage
+then 
+    0C11: memset destination 29@ value 0 size 256
+    
+    0BE5: raknet 31@ = get_hook_param PARAM_BITSTREAM
+    0BE7: raknet 30@ = bit_stream_read 31@ type BS_TYPE_INT //color
+    0BE7: raknet 30@ = bit_stream_read 31@ type BS_TYPE_INT //lenght
+    0BE8: raknet bit_stream 31@ read_array 29@ size 30@ //string
+    0C0D: struct 29@ offset 30@ size 1 = 0
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Ai inceput sa pescuiesti. Asteapta 10 secunde..."
+    then
+        if 20@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 515.118,-2626.61,-38.0315)  
+            8@ = 1  
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "* Du-te la un 24/7 pentru a vinde pestele."
+    then
+        if or
+        20@ == 1
+        19@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 2151.3296,2734.6440,11.1763)
+            24@ = 1
+            0B25: samp 16@ = get_player_health $PLAYER_ACTOR
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Noul tau job este Arms Dealer."
+    then
+        if 20@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 385.8308,-2064.9163,5.8359)
+            10@ = 1
+        end
+        if 19@ == 1
+        then
+           Actor.PutAt($PLAYER_ACTOR, 1999.7000,1544.6399,11.1029)
+           10@ = 1
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Noul tau job este Fish Los Santos."
+    then
+        if 20@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 372.6348,-2078.6516,7.8359)
+            11@ = 1
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Noul tau job este Fish Las Venturas."
+    then
+        if 20@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 372.6348,-2078.6516,7.8359)
+            11@ = 1
+        end
+        if 19@ == 1
+        then
+            Actor.PutAt($PLAYER_ACTOR, 2000.9236,1564.5646,8.0484)
+            11@ = 1
+        end            
+    end
+    if
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "* Ai vandut pestele"
+    then
+        //15@ = 1
+    end
+    
+    
+end
+0BE0: raknet hook_ret true 
+    

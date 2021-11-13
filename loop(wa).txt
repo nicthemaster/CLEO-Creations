@@ -1,0 +1,97 @@
+{$CLEO}
+0000:
+
+repeat
+wait 0
+until SAMP.Available()
+
+0b34: "loop" @loop
+0b34: "lrr" @rr
+0@ = 0
+
+while true 
+wait 0
+
+    if and
+    Actor.Driving($PLAYER_ACTOR)
+    not key_down 70
+    0@ == 1
+    then
+        if and
+        not SAMP.IsDialogActive(-1)
+        not SAMP.ChatInputOpened()
+        not SAMP.IsCursorActive()
+        then   
+            0C72: set_virtual_key 87 down true       
+            0C72: set_virtual_key 65 down true
+            if and
+            2@ == 0
+            32@ >= 450
+            then
+                0C72: set_virtual_key 32 down true
+                if 32@ >= 500
+                then
+                    0C72: set_virtual_key 16 down true
+                    2@ = 1
+                end
+            end
+            
+            if 2@ == 1
+            then
+                0C72: set_virtual_key 32 down true
+                0C72: set_virtual_key 16 down true
+            end
+
+            
+        else
+            32@ = 0
+            0C72: set_virtual_key 87 down false
+            0C72: set_virtual_key 65 down false
+            0C72: set_virtual_key 16 down false 
+            2@ = 0
+            repeat
+            wait 0
+            until not SAMP.IsCursorActive()
+        end
+    else
+        32@ = 0
+        if 0@ == 1
+        then
+            0C72: set_virtual_key 87 down false
+            0C72: set_virtual_key 65 down false
+            0C72: set_virtual_key 16 down false  
+            chatmsg "-Loop OFF" -1
+            0@ = 0
+            2@ = 0
+        end
+    end
+    
+
+END
+
+
+:loop
+if not Actor.Driving($PLAYER_ACTOR)
+then
+    chatmsg "Need to be in car" -1
+else
+    2@ = 0
+    0B12: 0@ = 0@ XOR 1
+    if 0@ == 1
+    then 
+        chatmsg "-Loop ON" -1
+        32@ = 0
+    else
+        chatmsg "-Loop OFF" -1
+        32@ = 0
+    end
+end
+SAMP.CmdRet()
+
+:rr
+0A92: create_custom_thread "wa.cs"
+32@ = 0
+0A93: end_custom_thread
+SAMP.CmdRet()
+
+

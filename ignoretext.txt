@@ -1,0 +1,38 @@
+{$CLEO}
+{$INCLUDE SF}
+0000:
+
+
+repeat
+wait 0
+until SAMP.Available()
+
+
+0BE3: raknet setup_incoming_rpc_hook @chat_hook
+
+while true
+wait 0 
+
+END
+
+:chat_hook
+0BE5: raknet 31@ = get_hook_param PARAM_PACKETID
+if 31@ == RPC_ScrClientMessage
+then  
+    alloc 28@ 129
+    0C11: memset destination 28@ value 0 size 129
+    0BE5: raknet 30@ = get_hook_param PARAM_BITSTREAM
+    0BE7: raknet 27@ = bit_stream_read 30@ type BS_TYPE_INT //color
+    0BE7: raknet 29@ = bit_stream_read 30@ type BS_TYPE_INT //lenght
+    0BE8: raknet bit_stream 30@ read_array 28@ size 29@ //string
+    0C0D: struct 28@ offset 29@ size 1 = 0
+    
+    if 0C18: $NOT_STRING = strstr string1 28@ string2 "You are driving your own vehicle. Use /lock or N to lock it." //conditia pentru text
+    then
+        //NOP
+        0BE0: raknet hook_ret false
+    end
+    
+    free 28@
+end
+0BE0: raknet hook_ret true

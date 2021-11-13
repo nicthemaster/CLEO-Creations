@@ -1,0 +1,648 @@
+{$CLEO}
+
+0000:
+
+repeat
+    wait 0
+until 0AFA:
+
+chatmsg "{66ccff}[Marathon Helper]: {ffffff}Scrie /minfo pentru mai multe informatii." -1
+
+0B34: "minfo" @minfo
+//days
+0B34: "m1" @m1
+0B34: "m2" @m2
+0B34: "m3" @m3
+0B34: "m4" @m4
+0B34: "m5" @m5
+0B34: "m6" @m6
+0B34: "m7" @m7
+0B34: "m8" @m8
+0B34: "m9" @m9
+0B34: "m10" @m10
+0B34: "m11" @m11
+0B34: "m12" @m12
+0B34: "m13" @m13
+0B34: "m14" @m14
+0B34: "m15" @m15
+0B34: "m16" @m16
+0B34: "m17" @m17
+0B34: "m18" @m18
+0B34: "m19" @m19
+0B34: "m20" @m20
+0B34: "m21" @m21
+0B34: "m22" @m22
+0B34: "m23" @m23
+0B34: "m24" @m24
+0B34: "m25" @m25
+0B34: "m26" @m26
+0B34: "m27" @m27
+0B34: "m28" @m28
+0B34: "m29" @m29
+0B34: "m30" @m30
+0B34: "m31" @m31
+//an
+0B34: "m1an" @m1an
+0B34: "m2an" @m2an
+0B34: "m3an" @m3an
+0B34: "m4an" @m4an
+0B34: "m5an" @m5an
+0B34: "m6an" @m6an
+0B34: "m7an" @m7an
+0B34: "m8an" @m8an
+0B34: "m9an" @m9an
+0B34: "m10an" @m10an
+0B34: "m11an" @m11an
+0B34: "m12an" @m12an
+0B34: "m13an" @m13an
+0B34: "m14an" @m14an
+0B34: "m15an" @m15an
+0B34: "m16an" @m16an
+0B34: "m17an" @m17an
+0B34: "m18an" @m18an
+0B34: "m19an" @m19an
+0B34: "m20an" @m20an
+0B34: "m21an" @m21an
+0B34: "m22an" @m22an
+0B34: "m23an" @m23an
+0B34: "m24an" @m24an
+0B34: "m25an" @m25an
+0B34: "m26an" @m26an
+0B34: "m27an" @m27an
+0B34: "m28an" @m28an
+0B34: "m29an" @m29an
+0B34: "m30an" @m30an
+0B34: "m31an" @m31an
+//ann
+0B34: "m1ann" @m1ann
+0B34: "m2ann" @m2ann
+0B34: "m3ann" @m3ann
+0B34: "m4ann" @m4ann
+0B34: "m5ann" @m5ann
+0B34: "m6ann" @m6ann
+0B34: "m7ann" @m7ann
+0B34: "m8ann" @m8ann
+0B34: "m9ann" @m9ann
+0B34: "m10ann" @m10ann
+0B34: "m11ann" @m11ann
+0B34: "m12ann" @m12ann
+0B34: "m13ann" @m13ann
+0B34: "m14ann" @m14ann
+0B34: "m15ann" @m15ann
+0B34: "m16ann" @m16ann
+0B34: "m17ann" @m17ann
+0B34: "m18ann" @m18ann
+0B34: "m19ann" @m19ann
+0B34: "m20ann" @m20ann
+0B34: "m21ann" @m21ann
+0B34: "m22ann" @m22ann
+0B34: "m23ann" @m23ann
+0B34: "m24ann" @m24ann
+0B34: "m25ann" @m25ann
+0B34: "m26ann" @m26ann
+0B34: "m27ann" @m27ann
+0B34: "m28ann" @m28ann
+0B34: "m29ann" @m29ann
+0B34: "m30ann" @m30ann
+0B34: "m31ann" @m31ann
+
+
+while true
+wait 0
+
+END
+
+:minfo
+0AC6: 0@ = label @Text offset
+0B3B: samp show_dialog id 7777 caption "{66ccff}Marathon Helper - Season 8" text 0@ button_1 "Close" button_2 "" style 0
+0B43: samp cmd_ret
+
+:Text
+hex
+"{afbdb3}Durata: 1 Mai - 2 Iunie" A
+"Preturi: - Skip: 100 Gold pe zi" A
+"         - Pro: 3000 Gold" A
+"Premii disponibile: 31 zile x 2" A
+" " A
+"{66ccff}Comenzi disponibile: " A
+"{afbdb3}/m(ziua) - Informatii ziua x" A
+"Exemplu: /m21" A
+" " A
+"/m(ziua)an - Informatii ziua x pe /an" A 
+"/m(ziua)ann - Informatii ziua x pe /hl" A
+"Exemplu: /m14an, /m31ann" A
+"Text: La ziua X a maratonului castigi Y la Standard," A
+"Z la PRO si trebuie facute ... puncte." A
+" " A
+"Credits: Nic.eXe" A
+"Special thanks to: Kelton :)" 00
+end
+
+//days
+
+:m1
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 1]{FFFFFF} Premiu Standard: 10 MP | Premiu PRO: 30 MP" -1
+chatmsg "{66ccff}[Marathon Day 1]{FFFFFF} Puncte Deblocare: 50 puncte" -1
+0B43: samp cmd_ret
+
+:m2
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 2]{FFFFFF} Premiu Standard: 5 Escape Points | Premiu PRO: 15 Escape Points" -1
+chatmsg "{66ccff}[Marathon Day 2]{FFFFFF} Puncte Deblocare: 20 puncte" -1
+0B43: samp cmd_ret
+
+:m3
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 3]{FFFFFF} Premiu Standard: 20# Job Boost | Premiu PRO: 40# Job Boost" -1
+chatmsg "{66ccff}[Marathon Day 3]{FFFFFF} Puncte Deblocare: 100 puncte" -1
+0B43: samp cmd_ret
+
+:m4
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 4]{FFFFFF} Premiu Standard: Yellow Crate | Premiu PRO: Silver Crate" -1
+chatmsg "{66ccff}[Marathon Day 4]{FFFFFF} Puncte Deblocare: 150 puncte" -1
+0B43: samp cmd_ret
+
+:m5
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 5]{FFFFFF} Premiu Standard: 10 RP | Premiu PRO: 30 RP" -1
+chatmsg "{66ccff}[Marathon Day 5]{FFFFFF} Puncte Deblocare: 30 puncte" -1
+0B43: samp cmd_ret
+
+:m6
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 6]{FFFFFF} Premiu Standard: 1 Free Bail | Premiu PRO: 3 Free Bail" -1
+chatmsg "{66ccff}[Marathon Day 6]{FFFFFF} Puncte Deblocare: 30 puncte" -1
+0B43: samp cmd_ret
+
+:m7
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 7]{FFFFFF} Premiu Standard: 1 Week Premium | Premiu PRO: 2 Week Premium" -1
+chatmsg "{66ccff}[Marathon Day 7]{FFFFFF} Puncte Deblocare: 80 puncte" -1
+0B43: samp cmd_ret
+
+:m8
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 8]{FFFFFF} Premiu Standard: 15 Rob Points | Premiu PRO: 30 Rob Points" -1
+chatmsg "{66ccff}[Marathon Day 8]{FFFFFF} Puncte Deblocare: 90 puncte" -1
+0B43: samp cmd_ret
+
+:m9
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 9]{FFFFFF} Premiu Standard: 30,000$ | Premiu PRO: 90,000$" -1
+chatmsg "{66ccff}[Marathon Day 9]{FFFFFF} Puncte Deblocare: 80 puncte" -1
+0B43: samp cmd_ret
+
+:m10
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 10]{FFFFFF} Premiu Standard: 10 Hours Played | Premiu PRO: 30 Hours Played" -1
+chatmsg "{66ccff}[Marathon Day 10]{FFFFFF} Puncte Deblocare: 120 puncte" -1
+0B43: samp cmd_ret
+
+:m11
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 11]{FFFFFF} Premiu Standard: 40 MP | Premiu PRO: 1 Free Safebox" -1
+chatmsg "{66ccff}[Marathon Day 11]{FFFFFF} Puncte Deblocare: 170 puncte" -1
+0B43: samp cmd_ret
+
+:m12
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 12]{FFFFFF} Premiu Standard: 10 Escape Points | Premiu PRO: 30 Escape Points" -1
+chatmsg "{66ccff}[Marathon Day 12]{FFFFFF} Puncte Deblocare: 40 puncte" -1
+0B43: samp cmd_ret
+
+:m13
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 13]{FFFFFF} Premiu Standard: Silver Skin | Premiu PRO: Platinum Skin" -1
+chatmsg "{66ccff}[Marathon Day 13]{FFFFFF} Puncte Deblocare: 100 puncte" -1
+0B43: samp cmd_ret
+
+:m14
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 14]{FFFFFF} Premiu Standard: 15% Jail Boost | Premiu PRO: 30% Jail Boost" -1
+chatmsg "{66ccff}[Marathon Day 14]{FFFFFF} Puncte Deblocare: 70 puncte" -1
+0B43: samp cmd_ret
+
+:m15
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 15]{FFFFFF} Premiu Standard: 1 Free Nickname | Premiu PRO: 1 Job Skill" -1
+chatmsg "{66ccff}[Marathon Day 15]{FFFFFF} Puncte Deblocare: 140 puncte" -1
+0B43: samp cmd_ret
+
+:m16
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 16]{FFFFFF} Premiu Standard: 40% Jail Boost | Premiu PRO: 60% Jail Boost" -1
+chatmsg "{66ccff}[Marathon Day 16]{FFFFFF} Puncte Deblocare: 120 puncte" -1
+0B43: samp cmd_ret
+
+:m17
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 17]{FFFFFF} Premiu Standard: 50,000$ | Premiu PRO: 150,000$" -1
+chatmsg "{66ccff}[Marathon Day 17]{FFFFFF} Puncte Deblocare: 140 puncte" -1
+0B43: samp cmd_ret
+
+:m18
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 18]{FFFFFF} Premiu Standard: 20 Rob Points | Premiu PRO: 40 Rob Points" -1
+chatmsg "{66ccff}[Marathon Day 18]{FFFFFF} Puncte Deblocare: 50 puncte" -1
+0B43: samp cmd_ret
+
+:m19
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 19]{FFFFFF} Premiu Standard: 20# Cheaper Cars | Premiu PRO: 30# Cheaper Cars" -1
+chatmsg "{66ccff}[Marathon Day 19]{FFFFFF} Puncte Deblocare: 170 puncte" -1
+0B43: samp cmd_ret
+
+:m20
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 20]{FFFFFF} Premiu Standard: 1 VIP Vehicle | Premiu PRO: 1 Car Slot" -1
+chatmsg "{66ccff}[Marathon Day 20]{FFFFFF} Puncte Deblocare: 180 puncte" -1
+0B43: samp cmd_ret
+
+:m21
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 21]{FFFFFF} Premiu Standard: 1 Level Up | Premiu PRO: 1 Level Up" -1
+chatmsg "{66ccff}[Marathon Day 21]{FFFFFF} Puncte Deblocare: 180 puncte" -1
+0B43: samp cmd_ret
+
+:m22
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 22]{FFFFFF} Premiu Standard: 150 Gold | Premiu PRO: 300 Gold" -1
+chatmsg "{66ccff}[Marathon Day 22]{FFFFFF} Puncte Deblocare: 170 puncte" -1
+0B43: samp cmd_ret
+
+:m23
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 23]{FFFFFF} Premiu Standard: 20% Rob Boost | Premiu PRO: 40% Rob Boost" -1
+chatmsg "{66ccff}[Marathon Day 23]{FFFFFF} Puncte Deblocare: 50 puncte" -1
+0B43: samp cmd_ret
+
+:m24
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 24]{FFFFFF} Premiu Standard: 30% Jail Boost | Premiu PRO: 50% Jail Boost" -1
+chatmsg "{66ccff}[Marathon Day 24]{FFFFFF} Puncte Deblocare: 110 puncte" -1
+0B43: samp cmd_ret
+
+:m25
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 25]{FFFFFF} Premiu Standard: 1 Week Half Report | Premiu PRO: 1 Week Opt. Rep." -1
+chatmsg "{66ccff}[Marathon Day 25]{FFFFFF} Puncte Deblocare: 150 puncte" -1
+0B43: samp cmd_ret
+
+:m26
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 26]{FFFFFF} Premiu Standard: 60% Job Boost | Premiu PRO: 80% Job Boost" -1
+chatmsg "{66ccff}[Marathon Day 26]{FFFFFF} Puncte Deblocare: 150 puncte" -1
+0B43: samp cmd_ret
+
+:m27
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 27]{FFFFFF} Premiu Standard: 1 Job Skill | Premiu PRO: 1 Rob Skill" -1
+chatmsg "{66ccff}[Marathon Day 27]{FFFFFF} Puncte Deblocare: 180 puncte" -1
+0B43: samp cmd_ret
+
+:m28
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 28]{FFFFFF} Premiu Standard: 20 License Hours | Premiu PRO: 40 License Hours" -1
+chatmsg "{66ccff}[Marathon Day 28]{FFFFFF} Puncte Deblocare: 80 puncte" -1
+0B43: samp cmd_ret
+
+:m29
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 29]{FFFFFF} Premiu Standard: 20 MP | Premiu PRO: 60 MP" -1
+chatmsg "{66ccff}[Marathon Day 29]{FFFFFF} Puncte Deblocare: 50 puncte" -1
+0B43: samp cmd_ret
+
+:m30
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 30]{FFFFFF} Premiu Standard: 200,000$ | Premiu PRO: 400,000$" -1
+chatmsg "{66ccff}[Marathon Day 30]{FFFFFF} Puncte Deblocare: 180 puncte" -1
+0B43: samp cmd_ret
+
+:m31
+chatmsg " " -1
+chatmsg "{66ccff}[Marathon Day 31]{FFFFFF} Premiu Standard: Jester | Premiu PRO: Dune" -1
+chatmsg "{66ccff}[Marathon Day 31]{FFFFFF} Puncte Deblocare: 220 puncte" -1
+0B43: samp cmd_ret
+
+//an
+
+:m1an
+say "/an Salut! La ziua 1 a maratonului castigi 10 Mission Points la Standard, 30 Mission Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m2an
+say "/an Salut! La ziua 2 a maratonului castigi 5 Escape Points la Standard, 15 Escape Points la PRO si trebuie facute 20 puncte."
+0B43: samp cmd_ret
+
+:m3an
+say "/an Salut! La ziua 3 a maratonului castigi 20 la suta Job Boost, 40# la PRO si trebuie facute 100 puncte."
+0B43: samp cmd_ret
+
+:m4an
+say "/an Salut! La ziua 4 a maratonului castigi Yellow Crate la Standard, Silver Crate la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m5an
+say "/an Salut! La ziua 5 a maratonului castigi 10 Respect Points la Standard, 30 Respect Points la PRO si trebuie facute 30 puncte."
+0B43: samp cmd_ret
+
+:m6an
+say "/an Salut! La ziua 6 a maratonului castigi 1 Free Bail la Standard, 3 Free Bail la PRO si trebuie facute 30 puncte."
+0B43: samp cmd_ret
+
+:m7an
+say "/an Salut! La ziua 7 a maratonului castigi 1 Week Premium la Standard, 2 Weeks Premium la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m8an
+say "/an Salut! La ziua 8 a maratonului castigi 15 Rob Points la Standard, 30 Rob Points la PRO si trebuie facute 90 puncte."
+0B43: samp cmd_ret
+
+:m9an
+say "/an Salut! La ziua 9 a maratonului castigi 30.000$ la Standard, 90.000$ la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m10an
+say "/an Salut! La ziua 10 a maratonului castigi 10 Ore Jucate la Standard, 30 Ore Jucate la PRO si trebuie facute 120 puncte."
+0B43: samp cmd_ret
+
+:m11an
+say "/an Salut! La ziua 11 a maratonului castigi 40 Mission Points la Standard, 1 Free Safebox la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m12an
+say "/an Salut! La ziua 12 a maratonului castigi 10 Escape Points la Standard, 30 Escape Points la PRO si trebuie facute 40 puncte."
+0B43: samp cmd_ret
+
+:m13an
+say "/an Salut! La ziua 13 a maratonului castigi un Silver Skin la Standard, Platinum Skin la PRO si trebuie facute 100 puncte."
+0B43: samp cmd_ret
+
+:m14an
+say "/an Salut! La ziua 14 a maratonului castigi 15% Jail Boost la Standard, 30% Jail Boost la PRO si trebuie facute 70 puncte."
+0B43: samp cmd_ret
+
+:m15an
+say "/an Salut! La ziua 15 a maratonului castigi 1 Free Nickname la Standard, 1 Job Skill la PRO si trebuie facute 140 puncte."
+0B43: samp cmd_ret
+
+:m16an
+say "/an Salut! La ziua 16 a maratonului castigi 40% Job Boost la Standard, 60% Job Boost la PRO si trebuie facute 120 puncte."
+0B43: samp cmd_ret
+
+:m17an
+say "/an Salut! La ziua 17 a maratonului castigi 50.000$ la Standard, 150.000$ la PRO si trebuie facute 140 puncte."
+0B43: samp cmd_ret
+
+:m18an
+say "/an Salut! La ziua 18 a maratonului castigi 20 Rob Points la Standard, 40 Rob Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m19an
+say "/an Salut! La ziua 19 a maratonului castigi 20% Cheaper Cars la Standard, 30% Cheaper Cars la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m20an
+say "/an Salut! La ziua 20 a maratonului castigi 1 VIP Vehicle la Standard, 1 Car Slot la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m21an
+say "/an Salut! La ziua 21 a maratonului castigi 1 Level Up la Standard, 1 Level Up la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m22an
+say "/an Salut! La ziua 22 a maratonului castigi 150 Gold la Standard, 300 Gold la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m23an
+say "/an Salut! La ziua 23 a maratonului castigi 20% Rob Boost la Standard, 40% Rob Boost la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m24an
+say "/an Salut! La ziua 24 a maratonului castigi 30% Jail Boost la Standard, 50% Jail Boost la PRO si trebuie facute 110 puncte."
+0B43: samp cmd_ret
+
+:m25an
+say "/an La ziua 25 a maratonului castigi 1 Week Half Report la Standard, 1 Week Opt. Report la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m26an
+say "/an Salut! La ziua 26 a maratonului castigi 60% Job Boost la Standard, 80% Job Boost la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m27an
+say "/an Salut! La ziua 27 a maratonului castigi 1 Job Skill la Standard, 1 Rob Skill la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m28an
+say "/an Salut! La ziua 28 a maratonului castigi 20 License Hours la Standard, 40 License Hours la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m29an
+say "/an La ziua 29 a maratonului castigi 20 Mission Points la Standard, 60 Mission Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m30an
+say "/an Salut! La ziua 30 a maratonului castigi 200.000$ la Standard, 400,000$ la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m31an
+say "/an Salut! La ziua 31 a maratonului castigi un Jester la Standard, un Dune la PRO si trebuie facute 220 puncte."
+0B43: samp cmd_ret
+
+//ann
+
+:m1ann
+
+say "/hl Salut! La ziua 1 a maratonului castigi 10 Mission Points la Standard, [..]" 
+say "/hl [..] 30 Mission Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m2ann
+
+say "/hl Salut! La ziua 2 a maratonului castigi 5 Escape Points la Standard, [..]" 
+say "/hl [..] 15 Escape Points la PRO si trebuie facute 20 puncte."
+0B43: samp cmd_ret
+
+:m3ann
+
+say "/hl Salut! La ziua 3 a maratonului castigi 20% Job Boost la Standard, [..]" 
+say "/hl [..] 40% Job Boost la PRO si trebuie facute 100 puncte."
+0B43: samp cmd_ret
+
+:m4ann
+
+say "/hl Salut! La ziua 4 a maratonului castigi Yellow Crate la Standard, [..]" 
+say "/hl [..] Silver Crate la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m5ann
+
+say "/hl Salut! La ziua 5 a maratonului castigi 10 Respect Points la Standard, [..]" 
+say "/hl [..] 30 Respect Points la PRO si trebuie facute 30 puncte."
+0B43: samp cmd_ret
+
+:m6ann
+
+say "/hl Salut! La ziua 6 a maratonului castigi 1 Free Bail la Standard, [..]" 
+say "/hl [..] 3 Free Bail la PRO si trebuie facute 30 puncte."
+0B43: samp cmd_ret
+
+:m7ann
+
+say "/hl Salut! La ziua 7 a maratonului castigi 1 Week Premium la Standard, [..]" 
+say "/hl [..] 2 Weeks Premium la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m8ann
+
+say "/hl Salut! La ziua 8 a maratonului castigi 15 Rob Points la Standard, [..]" 
+say "/hl [..] 30 Rob Points la PRO si trebuie facute 90 puncte."
+0B43: samp cmd_ret
+
+:m9ann
+
+say "/hl Salut! La ziua 9 a maratonului castigi 30.000$ la Standard, [..]" 
+say "/hl [..] 90.000$ la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m10ann
+
+say "/hl Salut! La ziua 10 a maratonului castigi 10 Ore Jucate la Standard, [..]" 
+say "/hl [..] 30 Ore Jucate la PRO si trebuie facute 120 puncte."
+0B43: samp cmd_ret
+
+:m11ann
+
+say "/hl Salut! La ziua 11 a maratonului castigi 40 Mission Points la Standard, [..]" 
+say "/hl [..] 1 Free Safebox la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m12ann
+
+say "/hl Salut! La ziua 12 a maratonului castigi 10 Escape Points la Standard, [..]" 
+say "/hl [..] 30 Escape Points la PRO si trebuie facute 40 puncte."
+0B43: samp cmd_ret
+
+:m13ann
+
+say "/hl Salut! La ziua 13 a maratonului castigi un Silver Skin la Standard, [..]" 
+say "/hl [..] Platinum Skin la PRO si trebuie facute 100 puncte."
+0B43: samp cmd_ret
+
+:m14ann
+
+say "/hl Salut! La ziua 14 a maratonului castigi 15% Jail Boost la Standard, [..]" 
+say "/hl [..] 30% Jail Boost la PRO si trebuie facute 70 puncte."
+0B43: samp cmd_ret
+
+:m15ann
+
+say "/hl Salut! La ziua 15 a maratonului castigi 1 Free Nickname la Standard, [..]" 
+say "/hl [..] 1 Job Skill la PRO si trebuie facute 140 puncte."
+0B43: samp cmd_ret
+
+:m16ann
+
+say "/hl Salut! La ziua 16 a maratonului castigi 40% Job Boost la Standard, [..]" 
+say "/hl [..] 60% Job Boost la PRO si trebuie facute 120 puncte."
+0B43: samp cmd_ret
+
+:m17ann
+
+say "/hl Salut! La ziua 17 a maratonului castigi 50.000$ la Standard, [..]" 
+say "/hl [..] 150.000$ la PRO si trebuie facute 140 puncte."
+0B43: samp cmd_ret
+
+:m18ann
+
+say "/hl Salut! La ziua 18 a maratonului castigi 20 Rob Points la Standard, [..]" 
+say "/hl [..] 40 Rob Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m19ann
+
+say "/hl Salut! La ziua 19 a maratonului castigi 20% Cheaper Cars la Standard, [..]" 
+say "/hl [..] 30% Cheaper Cars la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m20ann
+
+say "/hl Salut! La ziua 20 a maratonului castigi 1 VIP Vehicle la Standard, [..]" 
+say "/hl [..] 1 Car Slot la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m21ann
+
+say "/hl Salut! La ziua 21 a maratonului castigi 1 Level Up la Standard, [..]" 
+say "/hl [..] 1 Level Up la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m22ann
+
+say "/hl Salut! La ziua 22 a maratonului castigi 150 Gold la Standard, [..]" 
+say "/hl [..] 300 Gold la PRO si trebuie facute 170 puncte."
+0B43: samp cmd_ret
+
+:m23ann
+
+say "/hl Salut! La ziua 23 a maratonului castigi 20% Rob Boost la Standard, [..]" 
+say "/hl [..] 40% Rob Boost la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m24ann
+
+say "/hl Salut! La ziua 24 a maratonului castigi 30% Jail Boost la Standard, [..]" 
+say "/hl [..] 50% Jail Boost la PRO si trebuie facute 110 puncte."
+0B43: samp cmd_ret
+
+:m25ann
+
+say "/hl La ziua 25 a maratonului castigi 1 Week Half Report la Standard, [..]" 
+say "/hl [..] 1 Week Opt. Report la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m26ann
+
+say "/hl Salut! La ziua 26 a maratonului castigi 60% Job Boost la Standard, [..]" 
+say "/hl [..] 80% Job Boost la PRO si trebuie facute 150 puncte."
+0B43: samp cmd_ret
+
+:m27ann
+
+say "/hl Salut! La ziua 27 a maratonului castigi 1 Job Skill la Standard, [..]" 
+say "/hl [..] 1 Rob Skill la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m28ann
+
+say "/hl Salut! La ziua 28 a maratonului castigi 20 License Hours la Standard, [..]" 
+say "/hl [..] 40 License Hours la PRO si trebuie facute 80 puncte."
+0B43: samp cmd_ret
+
+:m29ann
+
+say "/hl La ziua 29 a maratonului castigi 20 Mission Points la Standard, [..]" 
+say "/hl [..] 60 Mission Points la PRO si trebuie facute 50 puncte."
+0B43: samp cmd_ret
+
+:m30ann
+
+say "/hl Salut! La ziua 30 a maratonului castigi 200.000$ la Standard, [..]" 
+say "/hl [..] 400,000$ la PRO si trebuie facute 180 puncte."
+0B43: samp cmd_ret
+
+:m31ann
+
+say "/hl Salut! La ziua 31 a maratonului castigi un Jester la Standard, [..]" 
+say "/hl [..] un Dune la PRO si trebuie facute 220 puncte."
+0B43: samp cmd_ret
+
+
+
+
+
+
+

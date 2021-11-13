@@ -1,0 +1,139 @@
+{$CLEO}
+
+0000:
+
+REPEAT
+    WAIT 0
+UNTIL 0AFA:
+
+//0BE3: raknet setup_incoming_rpc_hook @Test
+
+0B63: samp unregister_client_command ".veh"
+0B34: samp register_client_command ".veh" to_label @veh
+
+0B63: samp unregister_client_command "read"
+0B34: samp register_client_command "read" to_label @READ
+
+0B63: samp unregister_client_command "Set"
+0B34: samp register_client_command "Set" to_label @Set
+
+while true
+    wait 0
+end
+
+//:Test
+//0BE5: raknet 1@ = get_hook_param 1
+// chatmsg "Pachet ID: %d" -1 1@
+//if 1@ == 147
+//then 
+    //chatmsg "da" -1
+//    0BE0: raknet hook_ret 0
+//end
+//0BE0: raknet hook_ret true
+
+:Set
+SAMP.IsCommandTyped(0@)
+0AD4: 4@ = scan_string 0@ format "%d %d" 1@ 0@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x4 RetTo 2@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x8 RetTo 3@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xC RetTo 4@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x10 RetTo 5@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x14 RetTo 6@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x18 RetTo 7@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x1C RetTo 8@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x28 RetTo 9@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x74 RetTo 10@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x76 RetTo 11@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x7C RetTo 12@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x80 RetTo 13@
+// call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x84 RetTo 14@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x94 RetTo 15@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x98 RetTo 16@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0x9C RetTo 17@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xA0 RetTo 18@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xA4 RetTo 19@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xA8 RetTo 20@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xAC RetTo 21@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xB0 RetTo 22@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xB4 RetTo 23@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xB8 RetTo 24@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xBC RetTo 25@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xC0 RetTo 26@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xC4 RetTo 27@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xCC RetTo 28@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xD0 RetTo 29@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xD8 RetTo 30@
+call @GetVehicleHandlingValue 2 iVehID 1@ dwOffset 0xDC RetTo 31@
+
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x4 Value 2@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x8 Value 3@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xC Value 4@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x10 Value 5@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x14 Value 6@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x18 Value 7@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x1C Value 8@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x28 Value 9@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x74 Value 10@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x76 Value 11@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x7C Value 12@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x80 Value 13@
+// call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x84 Value 14@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x94 Value 15@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x98 Value 16@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0x9C Value 17@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xA0 Value 18@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xA4 Value 19@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xA8 Value 20@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xAC Value 21@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xB0 Value 22@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xB4 Value 23@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xB8 Value 24@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xBC Value 25@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xC0 Value 26@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xC4 Value 27@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xCC Value 28@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xD0 Value 29@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xD8 Value 30@
+call @SetVehicleHandlingValue 3 iVehID 0@ dwOffset 0xDC Value 31@
+
+chatmsg "Masina %d a obtinut atributiile masinii %d" -1 0@ 1@
+0B43: samp cmd_ret
+
+:READ
+SAMP.IsCommandTyped(1@)
+0AD4: 5@ = scan_string 1@ format "%d %x" 2@ 3@
+chatmsg "Veh: %d , Offset: %x" -1 2@ 3@
+call @GetVehicleHandlingValue 2 iVehID 2@ dwOffset 3@ RetTo 4@
+0B43: samp cmd_ret
+
+:Veh
+SAMP.IsCommandTyped(1@)
+0AD4: 5@ = scan_string 1@ format "%d %x %f" 2@ 3@ 4@
+chatmsg "Veh: %d , Offset: %x, Value: %f" -1 2@ 3@ 4@
+call @SetVehicleHandlingValue 3 iVehID 2@ dwOffset 3@ Value 4@
+0B43: samp cmd_ret
+
+:SetVehicleHandlingValue
+call @SetVehicleHandlingValue 3 iVehID dwOffset Value
+0@ -= 400
+0@ *= 0x308
+0@ += 0xB1F650
+0@ += 0x4E
+0A8D: 0@ = read_memory 0@ size 1 virtual_protect 0
+0@ *= 0xE0
+0@ += 0xC2B9DC
+005A: 0@ += 1@  // (int)
+0A8C: write_memory 0@ size 4 value 2@ virtual_protect 0
+ret 0
+
+:GetVehicleHandlingValue
+0@ -= 400
+0@ *= 0x308
+0@ += 0xB1F650
+0@ += 0x4E
+0A8D: 0@ = read_memory 0@ size 1 virtual_protect 0
+0@ *= 0xE0
+0@ += 0xC2B9DC
+005A: 0@ += 1@  // (int)
+0A8D: 0@ = read_memory 0@ size 4 virtual_protect 0
+ret 1 0@

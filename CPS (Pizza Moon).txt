@@ -1,0 +1,182 @@
+{$CLEO}
+{$INCLUDE SF}
+0000: NOP 
+
+thread "fak"
+
+:AdminHelp_2
+wait 0 
+   SAMP.Available
+else_jump @AdminHelp_2 
+alloc 29@ 256
+0BE3: raknet setup_incoming_rpc_hook @auto_chat
+0b34: "skemanic" @rr
+0b34: "staulacoada" @test
+0b34: "haitest" @testt
+
+while true
+wait 0
+
+if 8@ == 1
+then
+wait 200
+16@ = 1
+8@ = 0
+end
+
+if 18@ == 1
+then
+0C72: set_virtual_key 113 down true
+wait 25
+18@ = 0
+end
+
+if 18@ == 0
+then
+0C72: set_virtual_key 113 down false
+end
+
+if 23@ == 1
+then
+say "/work"
+wait 30
+end
+
+if and
+not SAMP.ChatInputOpened()
+0AB0: 48 
+then
+20@ = 0
+end 
+
+if
+   20@ == 1 
+then
+if 
+    call @is_cp_active 0
+then
+    call @get_cp_pos 0 1@ 2@ 3@
+    if 16@ == 1
+    then
+    Actor.PutAt($PLAYER_ACTOR, 1@, 2@, 3@)
+    wait 20
+    16@ = 0
+    end  
+end
+end 
+end
+
+:ct
+wait 0
+if
+   20@ == 1 
+then
+if 
+    call @is_cp_active 0
+then
+    call @get_cp_pos 0 1@ 2@ 3@
+    if 16@ == 1
+    then
+    Actor.PutAt($PLAYER_ACTOR, 1@, 2@, 3@)
+    wait 20
+    16@ = 0
+    end  
+end
+end
+jump @ct  
+
+:testt
+16@ = 1
+cmdret
+
+:test
+23@ = 1
+cmdret
+
+:rr
+20@ = 1
+print "~G~Subscribe la Nic B-Zone" 3000
+17@ = Actor.CurrentCar($PLAYER_ACTOR)
+cmdret   
+
+:auto_chat
+0BE5: raknet 31@ = get_hook_param PARAM_PACKETID
+if 31@ == RPC_ScrClientMessage
+then 
+    0C11: memset destination 29@ value 0 size 256
+    
+    0BE5: raknet 31@ = get_hook_param PARAM_BITSTREAM
+    0BE7: raknet 30@ = bit_stream_read 31@ type BS_TYPE_INT //color
+    0BE7: raknet 30@ = bit_stream_read 31@ type BS_TYPE_INT //lenght
+    0BE8: raknet bit_stream 31@ read_array 29@ size 30@ //string
+    0C0D: struct 29@ offset 30@ size 1 = 0
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Mergi la checkpoint si livreza o cutie de pizza pentru a fi platit."
+    then
+        if 20@ == 1
+        then
+            8@ = 1
+            17@ = Actor.CurrentCar($PLAYER_ACTOR)
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Mergi la checkpoint si livreza o cutie de pizza pentru a fi platit."
+    then
+    23@ = 0
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Pentru a realimenta mergi la checkpoint-ul marcat pe minimap."
+    then
+        if 20@ == 1
+        then
+            18@ = 1
+            036A: put_actor $PLAYER_ACTOR in_car 17@
+            Actor.PutAt($PLAYER_ACTOR, 2119.6772,-1787.2344,13.0856)
+        end
+    end
+    
+    if 
+    0C29: $NUL_STIRNG = stristr string1 29@ string2 "Mai ai 1 cutii de pizza. Mergi la checkpoint pentru a continua munca."
+    then
+        if 20@ == 1
+        then
+            18@ = 1
+            036A: put_actor $PLAYER_ACTOR in_car 17@
+            8@ = 1
+        end
+    end
+    
+    
+end
+0BE0: raknet hook_ret true 
+    
+    
+
+:is_cp_active
+0AA2: 0@ = loadlib "samp.dll"
+0A8E: 1@ = 0@ + 0x21A10C
+0A8D: 1@ = readMem 1@ sz 4 vp 0
+1@ += 0x24
+0A8D: 1@ = readMem 1@ sz 4 vp 0
+IF 1@ == TRUE
+THEN 0485:  return_true
+ELSE 059A:  return_false
+END
+0AA3: freelib 0@
+0AB2: ret 0
+
+:get_cp_pos
+0AA2: 0@ = loadlib "samp.dll"
+0A8E: 1@ = 0@ + 0x21A10C
+0A8D: 1@ = readMem 1@ sz 4 vp 0
+1@ += 0xC
+0A8D: 2@ = readMem 1@ sz 4 vp 0
+1@ += 0x4
+0A8D: 3@ = readMem 1@ sz 4 vp 0
+1@ += 0x4
+0A8D: 4@ = readMem 1@ sz 4 vp 0
+0AA3: freelib 0@
+0AB2: ret 3 2@ 3@ 4@
